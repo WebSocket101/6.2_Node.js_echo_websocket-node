@@ -1,5 +1,5 @@
 # WebSocket-Node Echo-Server
-Node.js Socket-io Echo-Server
+Node.js WebSocket-Node Echo-Server
 
 # Dependencies
 * [Node.js]: http://nodejs.org/
