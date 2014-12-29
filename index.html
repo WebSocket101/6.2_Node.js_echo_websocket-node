@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+    <head></head>
+  	<body>
+        <h1>Echo Image</h1>
+        <div>
+    		    <input type="file" />
+    		    <button onclick="sendFile()">send</button>
+        </div>
+        <div>
+            <img id="image">
+        </div>
+      	<script type="text/javascript"> 	
+            var webSocket = new WebSocket("ws://"+window.location.host);
+                  
+            function sendFile(){
+                var file = document.querySelector('input[type="file"]').files[0];        
+                webSocket.send(file);
+            }
+          
+            var url;
+            window.URL = window.URL || 
+                         window.webkitURL || 
+                         window.mozURL || 
+                         window.mosURL;
+            webSocket.onmessage = function(evt){
+                
+                if(url){
+                    window.URL.revokeObjectURL(url);
+                }
+
+                var img = document.getElementById("image");
+                url = window.URL.createObjectURL(evt.data);
+                
+                img.src = url;
+            }
+          
+            webSocket.onclose = function(evt){
+                console.log(evt.reason);
+                console.log(evt.code);
+            }
+      	</script>
+    </body>
+</html>
