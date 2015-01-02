@@ -2,8 +2,7 @@
 Node.js WebSocket-Node Echo-Server
 
 # Dependencies
-* [Node.js]: http://nodejs.org/
-* [socket.io]: https://github.com/theturtle32/WebSocket-Node
+* Node.js: http://nodejs.org/
 
 # Deployment
 Before first time deployment please execute:
